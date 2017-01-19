@@ -1,0 +1,15 @@
+#To change IP for fabric interconnects, login to either one via console:
+scope fabric-interconnect a
+set out-of-band ip <management IP for FI A> netmask <subnet mask> gw <default gateway>
+
+#Repeat for the second fabric interconnect.
+scope fabric-interconnect b
+set out-of-band ip <management IP for FI B> netmask <subnet mask> gw <default gateway>
+
+#To change the virtual IP used for system management, this should be in the same VLAN as the individual fabric interconnect IPs:
+scope system
+set virtual-ip <management IP for Cluster>
+
+#Finally check to see that there are no errors, then actually commit if everything checks out:
+commit-buffer verify-only
+commit-buffer
