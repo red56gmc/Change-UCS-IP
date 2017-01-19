@@ -13,3 +13,6 @@ set virtual-ip <management IP for Cluster>
 #Finally check to see that there are no errors, then actually commit if everything checks out:
 commit-buffer verify-only
 commit-buffer
+
+
+##Once the managment network subnet has been changed, the existing mgmt-IP pools will have to be deleted and new ones will have to be created withthe new IP ranges.
